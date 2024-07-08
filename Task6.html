@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+  <style>
+        
+    .container {
+      max-width: fit;
+      margin:10px;
+    }
+    :root{
+        --download-icon-color: #00f7ff;
+        --like-icon-color: #ff0000;
+        --share-icon-color: #adff2f;
+        --comment-icon-color: #ee82ee;
+        --bars-icon-color: #ffff00;
+    }
+    
+    nav {
+      border-radius: 30px;
+      display: flex;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-color: black;
+      
+    }
+    
+    label {
+      width:100%;
+      line-height: 60px;
+      font-weight: 400;
+      color: white;
+      position: relative;
+      
+    }
+    
+    .download:hover,.like:hover,.share:hover,.comment:hover,.bars:hover {
+      color:darkmagenta
+    }   
+    .slider {
+         position: absolute;
+         transform: translate(-50%, -50%);
+         height: 20%;
+         width: 10%;
+         left:-100px;
+         transition: 0.45s;
+         border-radius: 30px;
+    }
+    .slider::before {
+        content:"";
+        position: absolute;
+        transform: translate(-50%);
+        bottom: -55px;
+        border-width: 53px 25px 2px;
+        border-style: solid;
+        color: rgb(66, 65, 65);
+        clip-path: polygon(25% 0%, 75% 0%, 100% 90%, 0% 90%, 0% 100%);
+    }
+
+    #download:checked ~ nav .slider{
+      left: 10%;
+      background-color: var(--download-icon-color);
+      
+    }
+
+    #like:checked ~ nav .slider {
+      left: 30%;
+      background-color: var(--like-icon-color);
+    }
+    
+    #share:checked ~ nav .slider {
+      left: 50%;
+      background-color: var(--share-icon-color);
+    }
+    
+    #comment:checked ~ nav .slider {
+      left: 70%;
+      background-color: var(--comment-icon-color);
+
+    }
+    
+    #bars:checked ~ nav .slider {
+      left: 90%;
+      background-color: var(--bars-icon-color);
+
+    }
+
+    #download:checked ~ nav label[for="download"]{
+      color:var(--download-icon-color);
+      text-shadow: 0 1px 10px;
+
+    }
+
+    #like:checked ~ nav label[for="like"]{
+      color:var(--like-icon-color);
+      text-shadow: 0 1px 10px;
+
+    }
+
+    #share:checked ~ nav label[for="share"]{
+      color:var(--share-icon-color);
+      text-shadow: 0 1px 10px;
+
+    }
+
+    #comment:checked ~ nav label[for="comment"]{
+      color:var(--comment-icon-color);
+      text-shadow: 0 1px 10px;
+
+    }
+
+    #bars:checked ~ nav label[for="bars"]{
+      color:var(--bars-icon-color);
+      text-shadow: 0 1px 10px;
+
+    }
+    
+    input[type="radio"] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="radio" name="s" id="download">
+    <input type="radio" name="s" id="like">
+    <input type="radio" name="s" id="share">
+    <input type="radio" name="s" id="comment">
+    <input type="radio" name="s" id="bars">
+    
+    <nav>
+      <div class="slider"></div>
+      <label class="download"  for="download"><i class="fas fa-download"></i></label>
+      <label class="like" for="like"><i class="fas fa-heart"></i></label>
+      <label class="share" for="share"><i class="fas fa-share"></i></label>
+      <label class="comment" for="comment"><i class="fas fa-comment"></i></label>
+      <label class="bars" for="bars"><i class="fas fa-bars"></i></label>
+      
+    </nav>
+  </div>
+</body>
+</html>
